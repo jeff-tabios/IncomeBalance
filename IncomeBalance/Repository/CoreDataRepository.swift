@@ -17,7 +17,7 @@ protocol Repository {
     func create() -> Result<Entity, Error>
 
     // Deletes an entity
-    func delete(entity: Entity) -> Result<Bool, Error>
+    func delete(entity: Entity)
 }
 
 // Enum for CoreData related errors
@@ -64,8 +64,7 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
     }
 
     // Deletes a NSManagedObject entity
-    func delete(entity: Entity) -> Result<Bool, Error> {
+    func delete(entity: Entity) {
         managedObjectContext.delete(entity)
-        return .success(true)
     }
 }
