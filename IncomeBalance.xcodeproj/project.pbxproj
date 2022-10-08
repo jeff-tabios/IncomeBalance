@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0839E328F1D1E60034A49D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0839E228F1D1E60034A49D /* String+.swift */; };
 		BE2C8ECA28E2A5F4003C6FEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C8EC928E2A5F4003C6FEB /* AppDelegate.swift */; };
 		BE2C8ECC28E2A5F4003C6FEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C8ECB28E2A5F4003C6FEB /* SceneDelegate.swift */; };
 		BE2C8ECE28E2A5F4003C6FEB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C8ECD28E2A5F4003C6FEB /* ListViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE0839E228F1D1E60034A49D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		BE2C8EC628E2A5F4003C6FEB /* IncomeBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2C8EC928E2A5F4003C6FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE2C8ECB28E2A5F4003C6FEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				BE4B261928E6A4A0007A3354 /* Date+.swift */,
 				BE4B261D28E6FE42007A3354 /* UITextField+.swift */,
+				BE0839E228F1D1E60034A49D /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				BE2C8ED428E2A5F4003C6FEB /* IncomeBalance.xcdatamodeld in Sources */,
 				BE4B261C28E6EA0E007A3354 /* AddTransactionViewController.swift in Sources */,
 				BE4B260D28E4668E007A3354 /* CoreDataRepository.swift in Sources */,
+				BE0839E328F1D1E60034A49D /* String+.swift in Sources */,
 				BE2C8F0228E2BE1D003C6FEB /* Transaction.swift in Sources */,
 				BE4B261E28E6FE42007A3354 /* UITextField+.swift in Sources */,
 			);

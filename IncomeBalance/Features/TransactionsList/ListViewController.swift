@@ -61,12 +61,8 @@ extension ListViewController {
         let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this?", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            if let title = self.viewModel.transactions[indexPath.section]?[indexPath.row].title {
-                let predicate = NSPredicate(format: "title == %@", title)
-
-                _ = self.viewModel.deleteTransactions(predicate: predicate)
-                self.viewModel.refreshTransactions()
-            }
+            self.viewModel.deleteTransaction(at: indexPath.row)
+            self.viewModel.refreshTransactions()
         })
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)

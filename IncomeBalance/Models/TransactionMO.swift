@@ -27,9 +27,7 @@ extension TransactionMO {
 
 }
 
-extension TransactionMO : Identifiable {
-
-}
+extension TransactionMO : Identifiable { }
 
 protocol DomainModel {
     associatedtype DomainModelType

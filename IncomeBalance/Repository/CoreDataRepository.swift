@@ -40,6 +40,8 @@ class CoreDataRepository<T: NSManagedObject>: Repository {
     func get(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?) -> Result<[Entity], Error> {
         // Create a fetch request for the associated NSManagedObjectContext type.
         let fetchRequest = Entity.fetchRequest()
+        print(fetchRequest)
+        print()
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         do {

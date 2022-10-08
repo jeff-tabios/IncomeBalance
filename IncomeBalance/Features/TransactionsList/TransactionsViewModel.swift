@@ -107,6 +107,11 @@ extension TransactionsViewModel {
         }
     }
     
+    func deleteTransaction(at index: Int) {
+        unitOfWork.transactionRepository.deleteTransaction(at: index)
+        unitOfWork.saveChanges()
+    }
+    
     func deleteTransactions(predicate: NSPredicate? = nil) -> Bool {
         let result = unitOfWork.transactionRepository.deleteTransactions(predicate: predicate)
         

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-/// Protocol that describes a Transaction repository.
+// Protocol that describes a Transaction repository.
 protocol TransactionRepositoryInterface {
     // Get a gook using a predicate
     func getTransactions(predicate: NSPredicate?) -> Result<[Transaction], Error>
@@ -20,9 +20,9 @@ protocol TransactionRepositoryInterface {
 class TransactionRepository {
     // The Core Data Transaction repository.
     private let repository: CoreDataRepository<TransactionMO>
+    private var entities: [NSManagedObject] = []
     
-    /// Designated initializer
-    /// - Parameter context: The context used for storing and quering Core Data.
+    // Designated initializer
     init(context: NSManagedObjectContext) {
         self.repository = CoreDataRepository<TransactionMO>(managedObjectContext: context)
     }
@@ -35,6 +35,8 @@ extension TransactionRepository: TransactionRepositoryInterface {
         let result = repository.get(predicate: predicate, sortDescriptors: [sort])
         switch result {
         case .success(let TransactionsMO):
+            entities = TransactionsMO
+            
             // Transform the NSManagedObject objects to domain objects
             let Transactions = TransactionsMO.map { TransactionMO -> Transaction in
                 return TransactionMO.toDomainModel()
@@ -65,14 +67,19 @@ extension TransactionRepository: TransactionRepositoryInterface {
         }
     }
     
-    // Delet a item using a predicate
+    // Delete a item using a predicate
+    func deleteTransaction(at index: Int) {
+        repository.delete(entity: entities[index] as! TransactionMO)
+    }
+    
+    // Delete a item using a predicate
     @discardableResult func deleteTransactions(predicate: NSPredicate?) -> Result<Bool, Error> {
         let result = repository.get(predicate: predicate, sortDescriptors: nil)
         switch result {
         case .success(let TransactionsMO):
             if !TransactionsMO.isEmpty {
                 TransactionsMO.forEach { transaction in
-                    _ = repository.delete(entity: transaction)
+                    repository.delete(entity: transaction)
                 }
                 return .success(true)
             } else {
