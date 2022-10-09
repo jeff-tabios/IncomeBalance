@@ -57,9 +57,9 @@ class TransactionsViewModel {
         
         balance = income - expense
         
-        self.income = "$\(Int(income))"
-        self.expense = "$\(Int(expense))"
-        self.balance = "$\(Int(balance))"
+        self.income = "$\(income)"
+        self.expense = "$\(expense)"
+        self.balance = "$\(balance)"
         
         self.progress = Float(expense / (income + expense)) * 100 * 0.01
         
@@ -72,7 +72,7 @@ class TransactionsViewModel {
         return Transaction(title: t.title,
                            type: t.type,
                            amount: t.amount,
-                           amountString: "\(amountSign)$\(Int(t.amount))",
+                           amountString: "\(amountSign)$\(t.amount)",
                            date: t.date,
                            dateString: t.dateString)
         
