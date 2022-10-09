@@ -11,13 +11,20 @@ I used the following:
 - Combine
 - Delegate
 - Date formatting
-- Separation of Domain model from CoreData model handling
 - unit tests
 - Repository pattern
 - Auto layout
 
-Video
+Architecture: MVVM
 
+View <> ViewModel <> TransactionRepository <> CoreDataRepository > Model
+
+Description:
+Each view will have it's own viewModel and repositories that are related to their data.
+And each repository will communicate with CoreDataRepository to interact with CoreData.
+CoreDataRepository contains all logic for CoreData handling while other repositories related to specific context are seperate.
+
+Video
 
 https://user-images.githubusercontent.com/52874288/193270451-e6c5b599-03c4-4ebc-b41c-cfdbe5a873d8.mov
 
